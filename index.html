@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>کاتالوگ تعاملی امیر پوشش فرتاک</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #090d16;
+            --bg-card: #131c2e;
+            --bg-input: #1e293b;
+            --brand-orange: #e67e22;
+            --brand-green: #27ae60;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #23334d;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            font-family: system-ui, -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-height: 100vh;
+        }
+
+        /* هدر کاتالوگ */
+        .mobile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg-card);
+            padding: 12px 15px;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+        }
+        .mobile-header h1 { font-size: 15px; font-weight: bold; }
+        .mobile-header span { font-size: 11px; color: var(--brand-green); display: block; margin-top: 2px; }
+
+        /* کارت نمایش اطلاعات محصول */
+        .preview-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .prod-title-area h2 { font-size: 16px; color: var(--text-light); }
+        .prod-title-area p { font-size: 12px; color: var(--brand-orange); margin-top: 3px; }
+
+        /* بخش کنترل و متغیرها */
+        .config-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        /* دکمه‌های نوع محصول */
+        .grid-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .option-btn {
+            background-color: var(--bg-input);
+            border: 1px solid var(--border-color);
+            padding: 12px 6px;
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+        }
+        .option-btn.active {
+            background: linear-gradient(135deg, var(--brand-orange) 0%, #d35400 100%);
+            border-color: var(--brand-orange);
+            box-shadow: 0 3px 10px rgba(230,126,34,0.2);
+        }
+
+        /* دکمه‌های ضخامت بزرگ مخصوص موبایل */
+        .thick-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+        .thick-btn {
+            background-color: var(--bg-input);
+            border: 1px solid var(--border-color);
+            padding: 12px 4px;
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+        .thick-btn.active {
+            background-color: #fffae6;
+            color: #090d16;
+            border-color: #fffae6;
+            box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+        }
+
+        /
+
+* باکس نمایش وضعیت زنده */
+        .live-status-box {
+            background-color: #090d16;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border: 1px solid rgba(255,255,255,0.02);
+        }
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+        .status-label { color: var(--text-muted); }
+        .status-value { color: var(--text-light); font-weight: bold; }
+
+        .cta-mobile-btn {
+            background: linear-gradient(135deg, var(--brand-green) 0%, #1b723a 100%);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(39,174,96,0.25);
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-header">
+        <div>
+            <h1>امیر پوشش فرتاک</h1>
+            <span>کاتالوگ هوشمند محصولات</span>
+        </div>
+        <div style="font-size: 11px; background: rgba(39,174,96,0.15); color: var(--brand-green); padding: 4px 8px; border-radius: 6px; font-weight: bold;">اتصال داده PDF</div>
+    </div>
+
+    <div class="preview-card">
+        <div class="prod-title-area">
+            <h2 id="m-prod-title">پلی‌کربنات چند جداره مسطح</h2>
+            <p id="m-prod-dims">ابعاد: ۲.۱۰ × ۶ متر - ۱۲.۶۰ متر مربع</p>
+        </div>
+    </div>
+
+    <div class="config-card">
+        <div>
+            <div class="section-title"><i class="fa-solid fa-layer-group"></i> ۱. نوع ورق را انتخاب کنید:</div>
+            <div class="grid-options">
+                <div class="option-btn active" id="btn-multi" onclick="changeProduct('multi')">چندجداره مسطح</div>
+                <div class="option-btn" id="btn-wave" onclick="changeProduct('wave')">موج‌دار (سینوسی)</div>
+                <div class="option-btn" id="btn-flat" onclick="changeProduct('flat')">تخت (شیشه‌ای)</div>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-title"><i class="fa-solid fa-arrows-up-down"></i> ۲. ضخامت ورق را تعیین کنید:</div>
+            <div class="thick-row" id="thick-container">
+                </div>
+        </div>
+
+        <div class="live-status-box">
+            <div class="status-row">
+                <span class="status-label">وزن برگ کامل (طبق لیست):</span>
+                <span class="status-value" id="m-weight" style="color: var(--brand-green);">۷ الی ۸ کیلوگرم</span>
+            </div>
+            <div class="status-row">
+                <span class="status-label">ساختار هندسی و گرید:</span>
+                <span class="status-value" id="m-struct-txt">دوجداره مسطح استاندارد</span>
+            </div>
+            <div class="status-row">
+                <span class="status-label">واحد فروش اصلی:</span>
+                <span class="status-value">برگ کامل</span>
+            </div>
+        </div>
+
+        <button class="cta-mobile-btn"><i class="fa-brands fa-whatsapp"></i> <span>اشتراک‌گذاری مشخصات فنی</span></button>
+    </div>
+
+    <script>
+        // دیتابیس استخراج شده واقعی و بدون خطا از روی پی دی اف ارسالی شما
+        const db = {
+            multi: {
+                title: "پلی‌کربنات چند جداره مسطح",
+                dims: "ابعاد: ۲.۱۰ × ۶ متر - ۱۲.۶۰ متر مربع",
+                options: [
+                    { label: "۴ میلی‌متر", weight: "۷ الی ۸ کیلوگرم", struct: "دوجداره مسطح پرفروش" },
+                    { label: "۶ میلی‌متر", weight: "۱۰ الی ۱۴ کیلوگرم", struct: "دوجداره ضخیم صنعتی" },
+                    { label: "۸ میلی‌متر", weight: "۱۶ کیلوگرم", struct: "دوجداره ساختار مقاوم" },
+                    { label: "۱۰ میلی‌متر", weight: "۱۸ الی ۲۲ کیلوگرم", struct: "سه جداره لانه زنبوری فرتاک" }
+                ]
+            },
+            wave: {
+                title: "پلی‌کربنات دو جداره موجدار",
+                dims: "ابع
+
+اد: ۱.۱۴ × ۶.۲۰ متر - ۷.۰۶۸ متر مربع",
+                options: [
+                    { label: "۴ میلی‌متر", weight: "۷.۷۵۰ کیلوگرم", struct: "سینوسی / ذوزنقه‌ای" },
+                    { label: "۶ میلی‌متر", weight: "۱۲.۴ الی ۱۴.۵ کیلوگرم", struct: "سینوسی عایق شده" },
+                    { label: "۸ میلی‌متر", weight: "۱۴.۴ الی ۱۶.۵ کیلوگرم", struct: "موجدار صنعتی سنگین" }
+                ]
+            },
+            flat: {
+                title: "پلی‌کربنات تخت شیشه‌ای (نشکن)",
+                dims: "ابعاد: ۳.۰۵ × ۲.۰۵ متر - ۶.۲۵ متر مربع",
+                options: [
+                    { label: "۲ میلی‌متر", weight: "۱۵ کیلوگرم", struct: "تخت صلب ضد ضربه" },
+                    { label: "۳ میلی‌متر", weight: "۲۲.۵ کیلوگرم", struct: "تخت حفاظتی متوسط" },
+                    { label: "۴ میلی‌متر", weight: "۳۰ کیلوگرم", struct: "ضد ضربه گرید استاندارد" },
+                    { label: "۶ میلی‌متر", weight: "۴۵ کیلوگرم", struct: "فوق ضخیم امنیتی فرتاک" }
+                ]
+            }
+        };
+
+        let currentProduct = 'multi';
+
+        function changeProduct(key) {
+            currentProduct = key;
+            
+            document.querySelectorAll('.grid-options .option-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById('btn-' + key).classList.add('active');
+            
+            const productData = db[key];
+            document.getElementById('m-prod-title').innerText = productData.title;
+            document.getElementById('m-prod-dims').innerText = productData.dims;
+
+            renderThicknessButtons();
+        }
+
+        function renderThicknessButtons() {
+            const container = document.getElementById('thick-container');
+            container.innerHTML = '';
+            
+            const options = db[currentProduct].options;
+            options.forEach((opt, index) => {
+                const btn = document.createElement('div');
+                btn.className = 'thick-btn' + (index === 0 ? ' active' : '');
+                btn.innerText = opt.label;
+                btn.onclick = function() {
+                    document.querySelectorAll('.thick-row .thick-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    updateStatusValues(index);
+                };
+                container.appendChild(btn);
+            });
+            
+            updateStatusValues(0);
+        }
+
+        function updateStatusValues(index) {
+            const currentOption = db[currentProduct].options[index];
+            document.getElementById('m-weight').innerText = currentOption.weight;
+            document.getElementById('m-struct-txt').innerText = currentOption.struct;
+        }
+
+        // اجرای اولیه برنامه هنگام لود صفحه
+        renderThicknessButtons();
+    </script>
+</body>
+</html>
